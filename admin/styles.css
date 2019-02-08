@@ -1,0 +1,44 @@
+*{
+   font-family: monospace;}
+
+body{
+  
+    overflow-x: hidden;
+	
+}
+
+li{
+    list-style-type: none;
+}
+
+h3{
+	font-family: sans-serif;
+	color: grey;
+}
+  
+
+.user_list_head{
+	font-size: 22px; 
+	font-family: sans-serif;
+	color: dimgrey;
+	padding: 7px;
+}
+.user_list_item{
+	 border: grey solid 2px;
+	 font-size: 20px; 
+	 font-family: sans-serif;
+	 color: black;
+}
+.list_table{
+	padding: 8px;
+	width: 100%;
+	text-align: justify;
+	border:grey solid 2px;
+	border-radius: 3px;
+}
+.user_link{
+	text-decoration: none;
+}
+.navigation-list{
+	padding: 5px;
+}
