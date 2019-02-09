@@ -18,7 +18,8 @@
 	}
 	
 	if($_SERVER["REQUEST_METHOD"]== "POST"){
-		$email_id= $_POST["email_id"];
+		$date= date('Y-m-d H:i:s');
+		$email_id= $_POST['email_id'];
 		$query= "SELECT user_id, email_id FROM users WHERE email_id= '$email_id' AND role='author' ";
 		$result= mysqli_query($conn, $query);
 		while($row= mysqli_fetch_array($result)){
@@ -26,19 +27,22 @@
 		}
 		
 		if(mysqli_num_rows($result) == 1){
+			$_SESSION["email_id"]= $email_id;
 			randomKeys();
 			$key= randomKeys();
-			$query= "INSERT INTO reset_pwd_keys(user_id, email_id, random_key) VALUES('$user_id', '$email_id', '$key')";
+			$query= "INSERT INTO reset_pwd_keys(user_id, email_id, random_key, date_modified) VALUES('$user_id', '$email_id', '$key', '$date')";
 			$result= mysqli_query($conn, $query);
-			header(location: display_key.php);
+			
+			header("location: display_key.php");
 		}
 		
 		else{
 			$error= "Invalid Email id";
 		}
 		
+		
 	}
-	
+	ob_flush();
 	
 	
 

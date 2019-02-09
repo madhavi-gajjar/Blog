@@ -15,6 +15,7 @@
 				<label for="email">Email:</label>
 				<input type="email" class="form-control" placeholder="Enter email" name="email_id" > 
 			</div>
+			
 			<div class="form-group">
 			<a href="display_key.php">
 				<button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button></a>
