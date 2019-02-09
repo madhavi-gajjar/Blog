@@ -1,5 +1,5 @@
 <?php 
-	ob_start();
+	
 	session_start();
 	$email_id= $error= "";
 	
@@ -44,7 +44,7 @@
 		}
 		
 	}
-	ob_flush();
+	
 	
 	
 
