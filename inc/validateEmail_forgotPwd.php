@@ -1,4 +1,5 @@
 <?php 
+	ob_start();
 	session_start();
 	$email_id= $error= "";
 	
@@ -38,8 +39,9 @@
 		
 		else{
 			$error= "Invalid Email id";
+			
+			
 		}
-		
 		
 	}
 	ob_flush();
