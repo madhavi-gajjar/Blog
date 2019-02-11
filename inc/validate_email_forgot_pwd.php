@@ -29,7 +29,6 @@
 		
 		if(mysqli_num_rows($result) == 1){
 			$_SESSION["email_id"]= $email_id;
-			randomKeys();
 			$key= randomKeys();
 			$query= "INSERT INTO reset_pwd_keys(user_id, email_id, random_key, date_modified) VALUES('$user_id', '$email_id', '$key', '$date')";
 			$result= mysqli_query($conn, $query);
