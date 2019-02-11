@@ -6,7 +6,7 @@
 ?>
 
 
-	<form method="post" action="">
+	<form method="post" action="" >
 		<div class= "container">
 			<?php 
 				echo $error;
@@ -18,7 +18,7 @@
 			
 			<div class="form-group">
 			<a href="display_key.php">
-				<button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button></a>
+				<button type="submit" class="btn btn-default" name="submit" value="submit" >Submit</button></a>
 			</div>
 		</div>
 	</form>

@@ -33,8 +33,9 @@
 			$key= randomKeys();
 			$query= "INSERT INTO reset_pwd_keys(user_id, email_id, random_key, date_modified) VALUES('$user_id', '$email_id', '$key', '$date')";
 			$result= mysqli_query($conn, $query);
-			
+			if($result== true){
 			header("location: display_key.php");
+			}
 		}
 		
 		else{
@@ -42,7 +43,6 @@
 			
 			
 		}
-		
 	}
 	
 	
