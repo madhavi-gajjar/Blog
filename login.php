@@ -21,7 +21,7 @@
 				<label for="pwd">Password:</label>
 				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password" required >
 			</div>
-			<div><a href="validateEmail_forgotPwd.php">Forgot Password?</a></div>
+			<div><a href="validate_email_forgot_pwd.php">Forgot Password?</a></div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button>
 			</div>

@@ -5,13 +5,10 @@
 	include "inc/display_key.php";
 	include "admin/header.php";
 	
+?>
 
-	 
-	while($row= mysqli_fetch_array($result)):
-	?>
-	
-	<p>Click the link to reset Password: <a href="reset_password.php?key=<?php echo $row['random_key']; ?>"><?php echo $row['random_key'];  ?></a> </p>
-	<?php endwhile; ?>
+	<p>Click the link to reset Password: <a href="reset_password.php"><?php echo $_SERVER['QUERY_STRING']; ?></a> </p> 
+
 	
 <?php 
 	include "footer.php";

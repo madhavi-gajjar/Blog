@@ -1,7 +1,7 @@
 <?php 
 	include "inc/config.php";
 	include "inc/connection.php";
-	include "inc/validateEmail_forgotPwd.php";
+	include "inc/validate_email_forgot_pwd.php";
 	include "header.php";
 ?>
 
@@ -18,7 +18,7 @@
 			
 			<div class="form-group">
 			<a href="display_key.php">
-				<button type="submit" class="btn btn-default" name="submit" value="submit" >Submit</button></a>
+				<button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button></a>
 			</div>
 		</div>
 	</form>
