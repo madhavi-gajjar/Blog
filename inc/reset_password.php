@@ -5,8 +5,22 @@
 	$flag=1;
 	$error= array();
 	$email_id= $_SESSION['email_id'];
-	$query= "SELECT email_id from users WHERE email_id= '$email_id'";
-	$result= mysqli_query($conn, $query);
+	$query= "SELECT email_id FROM users WHERE email_id= '$email_id'";
+	$result= mysqli_query($conn, $query); 
+	$query= "SELECT * FROM reset_pwd_keys WHERE email_id= '$email_id'";
+	$res= mysqli_query($conn, $query);
+	while($row= mysqli_fetch_array($res)){
+		$date_mod= $row['date_modified'];
+		$date_mod= strtotime($date_mod);
+		$diff= $date_mod- time();
+		$hrs= round($diff / 3600); 
+		
+		if($hrs>24){
+			echo "Key expired";
+			exit();
+		}
+		
+	}
 	
 	if($_SERVER["REQUEST_METHOD"]== "POST"){
 		if(isset($_POST['cancel'])){
@@ -41,5 +55,6 @@
 			}
 		}
 	}
-
+	
+	
 ?>
