@@ -10,7 +10,8 @@
 <div class= "container-fluid">
 	<nav class="navbar navbar-expand-sm ">
 		<ul class= "navbar-nav navbar-right navigation-list">
-			<li><a class="btn btn-warning"  href="addUser.php">Add User</a></li>
+			<li><a class="btn btn-warning"  href="u
+			ser.php">Add User</a></li>
 			<li><a class="btn btn-warning" href="logout.php">logout</a></li>
 		</ul>
 	</nav>
@@ -29,10 +30,10 @@
 			<td class="user_list_item"><?php echo $row['f_name']; ?></td>
 			<td class="user_list_item"><?php echo $row['email_id']; ?></td>
 			<td class="user_list_item">
-				<a class="post-link" href="addUser.php?edit=<?php echo $row['user_id']; ?>">
+				<a class="post-link" href="user.php?edit=<?php echo $row['user_id']; ?>">
 				<button  class="btn btn-primary" >Edit</button></a>
 				
-				<a class="post-link"  href="addUser.php?delete=<?php echo $row['user_id']; ?>">
+				<a class="post-link"  href="user.php?delete=<?php echo $row['user_id']; ?>">
 				<button class="btn btn-danger">Delete</button></a>	
 			</td>
 		</tr>

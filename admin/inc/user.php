@@ -13,7 +13,7 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 		if(isset($_POST['cancel'])){
-				header("location: addUser.php");
+				header("location: user.php");
 			}
 		if(isset($_POST['cancel_update'])){
 				header("location: userList.php");
