@@ -2,7 +2,6 @@
 
 	include "inc/config.php";
 	include "inc/connection.php";
-	include "inc/display_key.php";
 	include "admin/header.php";
 	
 ?>
