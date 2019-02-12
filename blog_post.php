@@ -30,7 +30,7 @@
 			</div>
             <div class= "container-fluid title-container">
 			<div class="form-group">
-            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="" >
+            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="<?php echo $title; ?>" >
         </div>
         </div>
         <div class="container-fluid">
@@ -39,7 +39,7 @@
 					<div class="row">
 						<div class= "form-group">
 							<label for="image">Upload Image :</label>
-							<input class="form-control post-image" type="file" name="image"  value="<?php echo $image; ?>">
+							<input class="form-control post-image" type="file" name="image"  value="<?php echo"<img src= $target_dir$image.jpg>"; ?>">
 						
 						
 						</div>
@@ -67,26 +67,30 @@
 					</div>
 					<div class="col-sm-5">
 						<label class="radio-inline">
-							<input type="radio" name="status" value= "private" <?php if($row["status"]== 'private'){ echo "checked";}
+							<input type="radio" name="status" value= "private" <?php if($status== 'private'){ echo "checked";}
 								?> >Private
 						</label>
 						<label class="radio-inline">
-							<input type="radio" value="draft" name="status" <?php if($row["status"]== 'draft'){echo "checked";} ?> >Save Draft
+							<input type="radio" value="draft" name="status" <?php if($status== 'draft'){echo "checked";} ?> >Save Draft
 						</label>
+				
 					
-					<?php if($update == true): ?>
 						<label class="radio-inline">
-							<input type="radio" value="update" name="update" >Update
+							<input type="radio" value="published" name="status" <?php if($status== 'published'){echo "checked";}?> >Publish
 						</label>
 						
-					<?php else: ?>
-						<label class="radio-inline">
-							<input type="radio" value="published" name="status" <?php if($row["status"]== 'published'){echo "checked";}?> >Publish
-						</label>
-						<?php endif; ?>
+						
+						
 					 </div>
 					 <div class="col-sm-2">
+					 <?php if($update == true): ?>
+						<label class="radio-inline">
+							<button class="form-control" type="submit" name="update" >Update
+						</label>
+						
+						<?php else: ?>
 						<button class="form-control" type="submit" name="done">Done</button>
+						<?php endif; ?>
 					 </div>
 					
 				</div>

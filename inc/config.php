@@ -3,6 +3,6 @@
 	$databaseName= "blogs";
 	$username= "root";
 	$password= "root";
-	$target_dir= "";
+	$target_dir= "uploads/";
 
 ?>

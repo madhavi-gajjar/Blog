@@ -28,7 +28,7 @@
 		<td class='post_list_item'>
 				<a class='post-link' href="blog_post.php?edit=<?php echo $row['post_id']; ?>">
 				<button  class='btn btn-primary'>Edit</button></a>
-				<a class='post-link' onClick="return confirm('Confirm deletion');" href="blog_post.php?delete=<?php echo $row['post_id']; ?>">
+				<a class='post-link'  onClick="return confirm('Confirm deletion');" href="blog_post.php?delete=<?php echo $row['post_id']; ?>">
 				<button type="button" class="btn btn-danger">Delete</button></a>	
 		</td>
 		</tr>

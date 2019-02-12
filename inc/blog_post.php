@@ -3,6 +3,9 @@
 	$title= $image= $content= $caption= $author= $category= $status= "";
 	$error= array();
 	$update= false;
+	if($_SERVER["REQUEST_METHOD"]== "GET"){
+		$update= true;
+	}
 	
 	
 		function validate($data) {
@@ -20,7 +23,8 @@
 			$author = $_POST["author"];
 			$cat_id= $_POST["category"];
 			$post_id= $_POST["post_id"];
-			$email_id= $_SESSION['email_id'];	
+			$email_id= $_SESSION['email_id'];
+			$date = date('Y-m-d H:i:s');
 			$flag= 1;
 				if (!empty($_POST["title"])) {
 					$title = validate($_POST["title"]);
@@ -51,10 +55,7 @@
 					if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileName)) {
 						echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
 						}	
-					else {
-							array_push($error, "File not uploaded");
-							$flag= 0;
-					}
+					
 			}
 			$image=basename( $_FILES["image"]["name"],".jpg");
 					
@@ -62,7 +63,7 @@
 					
 			if(isset($_POST['done']) && $flag){
 					
-					$date = date('Y-m-d H:i:s');
+					
 					$query= "INSERT INTO blog_posts (post_title, post_content, post_image, post_caption, post_status, author, date_of_creation, cat_id, user_id ) VALUES('$title', '$content', '$image', '$caption', '$status','$author', '$date','$cat_id', (SELECT user_id FROM users WHERE email_id= '$email_id') )";
 					$result = mysqli_query($conn, $query);
 					header("location: blog_post.php");
@@ -74,7 +75,7 @@
 				if( isset($_POST['update']) && $flag){
 
 					
-					$query= "UPDATE blog_posts SET  post_title='$title', post_content='$content', post_image='$image', post_caption='$caption', author= '$author', date_of_creation= '$date', cat_id='$cat_id', post_status= '$status' WHERE post_id= $post_id; AND user_id= (SELECT user_id FROM users WHERE email_id= '$email_id') ";
+					$query= "UPDATE blog_posts SET  post_title='$title', post_content='$content', post_image='$image', post_caption='$caption', author= '$author', date_of_creation= '$date', cat_id='$cat_id', post_status= '$status' WHERE post_id= '$post_id' AND user_id= (SELECT user_id FROM users WHERE email_id= '$email_id') ";
 					$result= mysqli_query($conn, $query);
 					header("location: blog_list.php");
 				
@@ -87,13 +88,13 @@
 	
 				}
 		
-	if(isset($_GET['delete'])){
+	if(isset($_GET["delete"])){
 			$email_id= $_SESSION['email_id'];
 			$post_id= $_GET['delete'];
 			$query= "DELETE FROM blog_posts WHERE post_id= 'post_id' AND user_id= (SELECT user_id FROM users WHERE email_id= '$email_id')";
 			$result= mysqli_query($conn, $query);
-			
 			header("location: blog_list.php");
+		
 		
 		
 	}
@@ -104,7 +105,7 @@
 			$update= true;
 			$query= "SELECT * FROM blog_posts WHERE post_id= '$post_id' AND user_id= (SELECT user_id FROM users WHERE email_id= '$email_id')";
 			$result= mysqli_query($conn, $query);
-			if(mysqli_num_rows(result)==1){
+			if(mysqli_num_rows($result)==1){
 				$row= mysqli_fetch_array($result);
 				$title= $row["post_title"];
 				$content= $row["post_content"];
@@ -113,7 +114,7 @@
 				$author= $row["author"];
 				$status= $row["post_status"];
 				
-				header("location: blog_post.php?edit=$post_id");
+			
 	}
 			
 			
