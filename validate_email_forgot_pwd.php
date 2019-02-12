@@ -1,6 +1,7 @@
 <?php 
 	include "inc/config.php";
 	include "inc/connection.php";
+	include "inc/functions.php";
 	include "inc/validate_email_forgot_pwd.php";
 	include "header.php";
 ?>
@@ -9,7 +10,7 @@
 	<form method="post" action="" >
 		<div class= "container">
 			<?php 
-				echo $error;
+				display_error($error);
 			?>
 			<div class="form-group">
 				<label for="email">Email:</label>

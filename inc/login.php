@@ -4,7 +4,7 @@
 	session_start();
 		
 	$email_id= $user_password= "";
-	$error= "";
+	$error= array();
 			
 	function validate($data) {
 		  $data = trim($data);
@@ -28,7 +28,7 @@
 			
 		}
 		else{
-			$error= "Invalid details entered";
+			array_push($error, "Invalid details entered");
 		}
 		
 	}

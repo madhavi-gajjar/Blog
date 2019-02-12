@@ -1,6 +1,7 @@
 <?php 
 	include "inc/config.php";
 	include "inc/connection.php";
+	include 'inc/functions.php';
 	include "inc/reset_password.php";
 	include "admin/header.php";
 ?>
@@ -8,10 +9,7 @@
 	<form method="post" action="">
 		<div class="container">
 		<?php 
-			foreach ($error as $i){
-				echo $i;
-				echo "<br>";
-			}
+			display_error($error);
 		?>
 			<div class="form-group">
 				<label for="email">Email:</label>
@@ -22,11 +20,11 @@
 			
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required >
+				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd"  >
 			</div>
 			<div class="form-group">
 				<label for="repPwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="repwd" required >
+				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="repwd"  >
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-info" name="reset">Reset</button>

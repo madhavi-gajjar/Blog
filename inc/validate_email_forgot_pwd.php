@@ -1,8 +1,8 @@
 <?php 
 	
 	session_start();
-	$email_id= $error= "";
-	
+	$email_id=  "";
+	$error= array();
 	function randomKeys(){
 		$key="";
 	
@@ -38,7 +38,7 @@
 		}
 		
 		else{
-			$error= "Invalid Email id";
+			array_push($error, "Invalid Email id");
 		}
 	}
 	

@@ -14,7 +14,7 @@
 		$date_mod= strtotime($date_mod);
 		$diff= $date_mod- time();
 		$hrs= round($diff / 3600);
-		if($hrs>24){
+		if($hrs > 24){
 			array_push($error, "Key expired, cannot reset password");
 			$flag= 0;
 			

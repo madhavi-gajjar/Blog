@@ -2,6 +2,7 @@
 
 	include "inc/config.php";
 	include "inc/connection.php";
+	include 'inc/functions.php';
 	include "inc/login.php";
 	include "header.php";
 ?>
@@ -11,15 +12,15 @@
 		<div class="container">
 			<h3>Login Here!</h3>
 			<?php 
-				echo "$error";
+				display_error($error);
 			?>
 			<div class="form-group">
 				<label for="email">Email:</label>
-				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email_id" required> 
+				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email_id" > 
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password" required >
+				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password"  >
 			</div>
 			<div><a href="validate_email_forgot_pwd.php">Forgot Password?</a></div>
 			<div class="form-group">
