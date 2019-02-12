@@ -10,6 +10,13 @@
 
 
 	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data"> 
+	<?php
+		foreach($error as $i){
+			echo "Error occured: $i";
+			echo "<br>";
+		}
+	?>
+	
 		<input type="hidden" name="post_id" value="<?php echo $post_id ?>" >
 			<div class= "container-fluid form-group select-container">
 					<div class="row">
@@ -23,7 +30,7 @@
 			</div>
             <div class= "container-fluid title-container">
 			<div class="form-group">
-            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="<?php echo $titleErr; ?>" >
+            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="" >
         </div>
         </div>
         <div class="container-fluid">
@@ -48,7 +55,7 @@
             </div>
                 
 					<div class="col-sm-9">
-                <input class="form-control post-content" type="text" placeholder=" Post Content here" name="content" value="<?php  echo $content; ?>" required>  
+                <input class="form-control post-content" type="text" placeholder=" Post Content here" name="content" value="<?php  echo $content; ?>" >  
 					</div>
 				</div>
 			</div>
@@ -60,10 +67,7 @@
 					</div>
 					<div class="col-sm-5">
 						<label class="radio-inline">
-							<input type="radio" value="private" name="status"
-								<?php
-								if($row["status"]== 'private'){
-								echo "checked";}
+							<input type="radio" name="status" value= "private" <?php if($row["status"]== 'private'){ echo "checked";}
 								?> >Private
 						</label>
 						<label class="radio-inline">
@@ -72,7 +76,7 @@
 					
 					<?php if($update == true): ?>
 						<label class="radio-inline">
-							<input type="radio" value="update" name="status" >Update
+							<input type="radio" value="update" name="update" >Update
 						</label>
 						
 					<?php else: ?>
@@ -80,7 +84,6 @@
 							<input type="radio" value="published" name="status" <?php if($row["status"]== 'published'){echo "checked";}?> >Publish
 						</label>
 						<?php endif; ?>
-						
 					 </div>
 					 <div class="col-sm-2">
 						<button class="form-control" type="submit" name="done">Done</button>
