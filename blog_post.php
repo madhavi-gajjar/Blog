@@ -9,7 +9,7 @@
 ?>
 
 
-	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data"> 
+	<form method="post" action="" enctype="multipart/form-data"> 
 	<?php
 		foreach($error as $i){
 			echo "Error occured: $i";

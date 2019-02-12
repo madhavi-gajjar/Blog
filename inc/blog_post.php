@@ -18,7 +18,6 @@
 			$content =$_POST["content"];
 			$caption = $_POST["caption"];
 			$author = $_POST["author"];
-			$status = $_POST["status"];
 			$cat_id= $_POST["category"];
 			$post_id= $_POST["post_id"];
 			$email_id= $_SESSION['email_id'];	
@@ -35,6 +34,13 @@
 					}
 				else{
 					array_push($error, "Content is required");
+					$flag= 0;
+				}
+				if(!empty($_POST["status"])){
+					$status= $_POST["status"];
+				}
+				else{
+					array_push($error, "Check radio button of your choice");
 					$flag= 0;
 				}
 	
