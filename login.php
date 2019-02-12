@@ -15,12 +15,13 @@
 			?>
 			<div class="form-group">
 				<label for="email">Email:</label>
-				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email_id" > 
+				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email_id" required> 
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password" >
+				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="user_password" required >
 			</div>
+			<div><a href="validate_email_forgot_pwd.php">Forgot Password?</a></div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default" name="submit" value="submit">Submit</button>
 			</div>

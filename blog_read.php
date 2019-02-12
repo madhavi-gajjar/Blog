@@ -19,7 +19,7 @@
 				echo"<div class='row'>";
 					echo"<div class='col-sm-4 ' >";
 							
-							echo"<img class='display-post-image' src= 'uploads/$row[3].jpg'>" ;
+							echo"<img class='display-post-image' src= '$target_dir$row[3].jpg'>" ;
 							
 							
 					echo"</div>";

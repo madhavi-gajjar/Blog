@@ -39,7 +39,7 @@
 				}
 	
 					//image upload
-			$target_dir= "uploads/";
+			
 			$fileName= $target_dir . basename($_FILES["image"]["name"]);
 			if(($_FILES['image']['size'] <= 2097152) || ($_FILES["image"]["size"] != 0)){
 					if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileName)) {
