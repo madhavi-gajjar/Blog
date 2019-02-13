@@ -2,7 +2,7 @@
 
 	include "inc/config.php";
 	include "inc/connection.php";
-	include 'inc/functions.php';
+	include 'admin/inc/functions.php';
 	include "inc/login.php";
 	include "header.php";
 ?>

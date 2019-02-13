@@ -1,7 +1,7 @@
 <?php 
 	include "inc/config.php";
 	include "inc/connection.php";
-	include 'inc/functions.php';
+	include 'admin/inc/functions.php';
 	include "inc/reset_password.php";
 	include "admin/header.php";
 ?>

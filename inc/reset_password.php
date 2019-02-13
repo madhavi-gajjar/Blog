@@ -1,8 +1,7 @@
 <?php 
 	session_start();
 	
-	$pwd= $repwd= "";
-	$flag=1;
+	$pwd= $repwd= $email_id= "";
 	$error= array();
 	$email_id= $_SESSION['email_id'];
 	$query= "SELECT email_id FROM users WHERE email_id= '$email_id'";
@@ -15,8 +14,7 @@
 		$diff= $date_mod- time();
 		$hrs= round($diff / 3600);
 		if($hrs > 24){
-			array_push($error, "Key expired, cannot reset password");
-			$flag= 0;
+			add_error("Key expired", 0);
 			
 		}
 		
@@ -34,13 +32,11 @@
 				$pwd= md5($_POST['pwd']);
 			}
 			else{
-				array_push($error, "Passwords dont match");
-				$flag=0;
+				add_error("Passwords dont match", 0);
 			}
 		}
 		else{
-			array_push($error, "Password field empty");
-			$flag=0;
+			add_error("Password field empty", 0);
 		}
 		
 		if(isset($_POST['reset']) && $flag){

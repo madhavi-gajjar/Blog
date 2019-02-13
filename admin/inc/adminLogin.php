@@ -2,7 +2,7 @@
 	
 	session_start();
 	
-	$email= $pwd= $error= "";
+	$email= $pwd= "";
 	
 	function validate($data){
 		$data= trim($data);
@@ -23,7 +23,7 @@
 		header("location: userList.php");
 		}
 		else{
-			$error= "Invalid details entered";
+			add_error("Invalid details entered");
 					
 		}
 		

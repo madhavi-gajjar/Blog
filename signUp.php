@@ -1,7 +1,7 @@
 <?php
 	include "inc/config.php";
 	include "inc/connection.php";
-	include "inc/functions.php";
+	include "admin/inc/functions.php";
 	include "inc/signUp.php";
 	include "header.php";
 ?>
@@ -31,8 +31,8 @@
 	
 
     <div class="container">
-      <button type="button" class="btn btn-danger" >Cancel</button>
       <button type="submit" class="btn btn-success" name="submit">Sign Up</button>
+      <button type="submit" class="btn btn-danger" name="cancel" >Cancel</button>
     </div>
   </div>
 </form>

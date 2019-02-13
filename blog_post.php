@@ -3,7 +3,7 @@
 	include "inc/connection.php";
 	include "inc/validate_login.php";
 	include "inc/category_dropdown.php";
-	include "inc/functions.php";
+	include "admin/inc/functions.php";
 	include "inc/blog_post.php";
 	include "header.php";
 	

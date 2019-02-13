@@ -22,29 +22,25 @@
 			$caption = validate($_POST["caption"]);
 			$author = validate($_POST["author"]);
 			$cat_id= $_POST["category"];
-			$email_id= $_SESSION["email_id"];
-			$flag= 1;	
+			$email_id= $_SESSION["email_id"];	
 			
 				if (!empty($_POST["title"])) {
 					$title = validate($_POST["title"]);
 						} 
 				else{
-					array_push($error, "Title required");
-					$flag= 0;
+					add_error("Title required");
 				}
 				if (!empty($_POST["content"])) {
 					$content= validate($_POST["content"]);
 				}
 				else{
-					array_push($error, "Content required");
-					$flag= 0;
+					add_error("Content required");
 					}
 				if(!empty($_POST["status"])){
 					$status= $_POST["status"];	
 				}	
 				else{
-					array_push($error, "Radio button not checked");
-					$flag=0;
+					add_error("Radio button not checked");
 
 				}
 					//image upload
@@ -52,7 +48,7 @@
 			$fileName= $target_dir . basename($_FILES["image"]["name"]);
 			if(($_FILES['image']['size'] <= 2097152) || ($_FILES["image"]["size"] != 0)){
 					if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileName)) {
-						echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+						$flag=1;
 						}	
 				
 			}
