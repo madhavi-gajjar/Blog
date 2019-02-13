@@ -2,7 +2,6 @@
 	ob_start();
 	$firstName= $lastName= $email= $pwd= $repPwd= $status= "";
 	$update= false;
-	$error= array();
 	
 
 	if(isset($_GET['edit'])){
@@ -13,12 +12,11 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 		if(isset($_POST['cancel'])){
-				header("location: addUser.php");
+				header("location: user.php");
 			}
 		if(isset($_POST['cancel_update'])){
 				header("location: userList.php");
 			}
-            $flag = 1;
 			$email= $_POST['email'];
 			$date= date('Y-m-d H:i:s');
 			$user_id= $_POST['user_id'];
@@ -36,8 +34,7 @@
 				$firstName= $_POST['firstName'];
 				}
 			else{
-				array_push($error, "Invalid/empty first name") ;
-                $flag=0;
+				add_error("Invalid/empty first name");
                 
 			}
 		
@@ -45,8 +42,7 @@
 				$lastName= $_POST['lastName'];
 			}
 			else{
-				array_push($error,"Invalid/empty last name");
-				$flag=0;
+				add_error("Invalid/empty last name");
 				
 			}
 
@@ -54,15 +50,13 @@
 			$check_result= mysqli_query($conn, $check_query);
 			
 			if(mysqli_num_rows($check_result)>0 && isset($_POST['submit'])){
-				array_push($error,"Email id already exists");
-                $flag=0;
+				add_error("Email id already exists");
 			}
 			else if(!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 				$email= $_POST['email'];
 			}
 			else{
-				array_push($error, "Email id not entered");
-                $flag=0;
+				add_error("Email id not entered");
 			
 			}
 			
@@ -80,15 +74,13 @@
 				if($_POST['pwd']== $_POST['repPwd']){
 					$pwd= md5($_POST['pwd']);}
 				else{
-					array_push($error,"Passwords dont match");
-                    $flag=0;
+					add_error("Passwords dont match");
 				}
 			}
 			
 			
 			else{
-				array_push($error,"Password not entered");
-                $flag=0;
+				add_error("Password not entered");
 				
 			}
 		

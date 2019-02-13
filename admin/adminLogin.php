@@ -1,13 +1,14 @@
 <?php 
 	include "inc/config.php";
 	include "inc/connection.php";
+	include "inc/functions.php";
 	include "inc/adminLogin.php";
 	include "header.php";
 ?>
 
 <?php
 
-	echo $error;
+	display_errors();
 
 ?>
 

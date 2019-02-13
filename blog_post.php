@@ -3,14 +3,19 @@
 	include "inc/connection.php";
 	include "inc/validate_login.php";
 	include "inc/category_dropdown.php";
+	include "admin/inc/functions.php";
 	include "inc/blog_post.php";
 	include "header.php";
+	
 	
 ?>
 
 
-	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data"> 
+	<form method="post" action="" enctype="multipart/form-data"> 
 		<input type="hidden" name="post_id" value="<?php echo $post_id ?>" >
+		<?php 
+			display_errors();
+		?>
 			<div class= "container-fluid form-group select-container">
 					<div class="row">
 						<label for="sel" class="col-sm-3 control-label">Select Category:</label>
@@ -23,7 +28,7 @@
 			</div>
             <div class= "container-fluid title-container">
 			<div class="form-group">
-            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="<?php echo $titleErr; ?>" >
+            <input class="form-control post-title" type="text" placeholder="Post Title here" name="title" value="<?php echo $title; ?>" >
         </div>
         </div>
         <div class="container-fluid">
@@ -48,7 +53,7 @@
             </div>
                 
 					<div class="col-sm-9">
-                <input class="form-control post-content" type="text" placeholder=" Post Content here" name="content" value="<?php  echo $content; ?>" required>  
+                <input class="form-control post-content" type="text" placeholder=" Post Content here" name="content" value="<?php  echo $content; ?>" >  
 					</div>
 				</div>
 			</div>

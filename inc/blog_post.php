@@ -1,13 +1,12 @@
 <?php
 	
-	ob_start(); 
 	
-	
-	$title= $image= $content= $caption= $author= $category= "";
-	$titleErr= $contentErr= $imageError= "";
+	$title= $image= $content= $caption= $author= $category= $status="";
+	$error= array();
 	$update= false;
-	
-	
+	if(isset($_REQUEST["GET"])){
+		$update= true;
+	}
 	
 			function validate($data) {
 				  $data = trim($data);
@@ -22,68 +21,59 @@
 			$content =validate($_POST["content"]);
 			$caption = validate($_POST["caption"]);
 			$author = validate($_POST["author"]);
-			$status= $_POST["status"];
 			$cat_id= $_POST["category"];
-			$post_id= $_POST["post_id"];
-			$email_id= $_SESSION['email_id'];	
-				if (empty($_POST["title"])) {
-					$titleErr = "Title is required";
-					echo $titleErr;
-					exit();
+			$email_id= $_SESSION["email_id"];	
+			
+				if (!empty($_POST["title"])) {
+					$title = validate($_POST["title"]);
 						} 
-				if (empty($_POST["content"])) {
-					$contentErr = "Content is required";
-					echo $contentErr;
-					exit();
+				else{
+					add_error("Title required");
+				}
+				if (!empty($_POST["content"])) {
+					$content= validate($_POST["content"]);
+				}
+				else{
+					add_error("Content required");
 					}
-					
-				
-					
+				if(!empty($_POST["status"])){
+					$status= $_POST["status"];	
+				}	
+				else{
+					add_error("Radio button not checked");
+
+				}
 					//image upload
-			$target_dir= "uploads/";
+			
 			$fileName= $target_dir . basename($_FILES["image"]["name"]);
 			if(($_FILES['image']['size'] <= 2097152) || ($_FILES["image"]["size"] != 0)){
 					if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileName)) {
-						echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+						$flag=1;
 						}	
-					else {
-							echo "File not uploaded";
-							exit();
-					}
+				
 			}
 			$image=basename( $_FILES["image"]["name"],".jpg");
 					
 					
-					
-			if(isset($_POST['done'])){
+			if(isset($_POST['done']) && $flag){
 					
 					$date = date('Y-m-d H:i:s');
 					$query= "INSERT INTO blog_posts (post_title, post_content, post_image, post_caption, post_status, author, date_of_creation, cat_id, user_id ) VALUES('$title', '$content', '$image', '$caption', '$status','$author', '$date','$cat_id', (SELECT user_id FROM users WHERE email_id= '$email_id') )";
-			
-			
-					$result = mysqli_query($conn, $query);
-					
-		
+					$result = mysqli_query($conn, $query);	
+					header("location: blog_post.php");
 			}
 					
 				
 			
-				if( isset($_POST['update'])){
+				if( isset($_POST['update']) && $flag){
 
 					
 					$query= "UPDATE blog_posts SET  post_title='$title', post_content='$content', post_image='$image', post_caption='$caption', author= '$author', date_of_creation= '$date', cat_id='$cat_id', post_status= '$status' WHERE post_id= $post_id; AND user_id= (SELECT user_id FROM users WHERE email_id= '$email_id') ";
 					$result= mysqli_query($conn, $query);
-				
-				
-
-			}
-		
-			header("location: blog_post.php");
-				
-				
+					header("location: blog_post.php");
 	
-				}
-		
+			}
+	}
 	if(isset($_GET['delete'])){
 			$email_id= $_SESSION['email_id'];
 			$post_id= $_GET['delete'];
@@ -117,5 +107,5 @@
 		}
 		
 		
-		ob_end_flush();
+		
 ?>

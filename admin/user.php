@@ -2,7 +2,8 @@
 	include "inc/config.php";
 	include "inc/connection.php";
 	include "inc/validate_login.php";
-	include "inc/addUser.php";
+	include "inc/functions.php";
+	include "inc/user.php";
 	include "header.php";
 	
 ?>
@@ -17,11 +18,8 @@
   <?php endif; ?>
   
 	<?php	
-		for($i=0; $i< count($error); $i++){
-			echo $error[$i];
-			echo "<br>";
-			}
-		//print_r($error);
+		display_errors();	
+		
 		?>
       
 		<div class="form-group">
