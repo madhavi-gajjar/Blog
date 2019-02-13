@@ -27,7 +27,7 @@
 			
 		}
 		else{
-			add_error("Invalid details entered", 0);
+			add_error("Invalid details entered");
 		}
 		
 	}

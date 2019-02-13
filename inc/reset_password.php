@@ -2,7 +2,6 @@
 	session_start();
 	
 	$pwd= $repwd= $email_id= "";
-	$error= array();
 	$email_id= $_SESSION['email_id'];
 	$query= "SELECT email_id FROM users WHERE email_id= '$email_id'";
 	$result= mysqli_query($conn, $query); 
