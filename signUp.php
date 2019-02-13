@@ -7,7 +7,7 @@
 ?>
 
 <form action="signUp.php" method="post">
-<?php display_error($error);?>
+<?php display_errors();?>
   <div class="container">
     <h1>Sign Up</h1>
 		<div class="form-group">

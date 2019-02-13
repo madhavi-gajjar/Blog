@@ -1,20 +1,20 @@
 <?php
 
-$error= array();
+$errors= array();
 $flag=1;
 
-function display_error(){
-	global $error;
-	foreach($error as $i){
+function display_errors(){
+	global $errors;
+	foreach($errors as $i){
 		echo "Error occured: $i";
 		echo "<br>";	
 	}
 }
 
 function add_error($str){
-	global $error;
+	global $errors;
 	global $flag;
-	$check= array_push($error, $str);
+	$check= array_push($errors, $str);
 	if(!empty($check)){
 		$flag=0;
 	}

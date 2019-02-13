@@ -9,7 +9,7 @@
 	<form method="post" action="">
 		<div class="container">
 		<?php 
-			display_error($error);
+			display_errors();
 		?>
 			<div class="form-group">
 				<label for="email">Email:</label>

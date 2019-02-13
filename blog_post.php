@@ -14,7 +14,7 @@
 	<form method="post" action="" enctype="multipart/form-data"> 
 		<input type="hidden" name="post_id" value="<?php echo $post_id ?>" >
 		<?php 
-			display_error($error);
+			display_errors();
 		?>
 			<div class= "container-fluid form-group select-container">
 					<div class="row">

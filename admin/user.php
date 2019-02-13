@@ -18,7 +18,7 @@
   <?php endif; ?>
   
 	<?php	
-		display_error();	
+		display_errors();	
 		
 		?>
       

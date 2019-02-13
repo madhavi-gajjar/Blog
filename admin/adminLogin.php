@@ -8,7 +8,7 @@
 
 <?php
 
-	display_error();
+	display_errors();
 
 ?>
 

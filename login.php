@@ -12,7 +12,7 @@
 		<div class="container">
 			<h3>Login Here!</h3>
 			<?php 
-				display_error($error);
+				display_errors();
 			?>
 			<div class="form-group">
 				<label for="email">Email:</label>
